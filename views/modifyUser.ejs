@@ -1,0 +1,59 @@
+<% include part/head %>
+    
+<% include part/header %>
+
+<script type="text/javascript">
+
+    function checkForm(form)
+    {
+        if (form.lastPassword.value == ""){
+            return true;
+        } else if (form.lastPassword.value == existingClient.Password_Client){
+            if(form.password.value == form.confirmPassword.value) {
+                return true;
+            } else {
+                alert("Erreur: Mot de passe différent!");
+                return false;
+            }
+        } else {
+            alert("Erreur: Ancien mot de passe incorrect!");
+            return false;
+        }
+        
+    }
+  
+</script>
+
+<form id="formModifyUser" method="post" action="/doModifyUser" onsubmit="return checkForm(this);">
+
+    Nom : 
+    <input name="nom" type="text" required pattern="[A-Za-z].{1,}" value="<%= existingClient.Nom_Client %>">
+</br>
+    Prénom : 
+    <input name="prenom" type="text" required pattern="[A-Za-z].{1,}" value="<%= existingClient.Prénom_Client %>">
+</br>
+    Mail : 
+    <input name="mail" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" value="<%= existingClient.Email_Client %>">
+</br>
+    Laisser les 3 champs suivants vide si vous ne souhaitez pas modifier le mot de passe
+</br>
+    Ancien Mot de passe : 
+    <input name="lastPassword" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Doit contenir au moins un chiffre, une majuscule et une minuscule et au moins 8 caractères.">
+</br>
+    
+    Mot de passe : 
+    <input name="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Doit contenir au moins un chiffre, une majuscule et une minuscule et au moins 8 caractères.">
+</br>
+
+    Confirmation mot de passe : 
+    <input name="confirmPassword" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Doit contenir au moins un chiffre, une majuscule et une minuscule et au moins 8 caractères.">
+</br>
+
+    <button type="submit">Modifier mes infos</button>
+</form>
+
+    
+<% include part/footer %>

@@ -1,0 +1,57 @@
+<% include part/head %>
+
+<% include part/header %>
+
+<h1><%= sejour.Nom_Sejour %></h1>
+<hr>
+<ul>
+    <li><%= sejour.ID_Sejour %></li>
+    <li><%= sejour.Pays_Sejour %></li>
+    <li><%= sejour.Ville_Sejour %></li>
+    <li><%= sejour.Prix_Sejour %>€</li>
+    <li>Accessible aux voyageurs de <%= sejour.AgeMin_Sejour %> à <%= sejour.AgeMax_Sejour %> ans.</li>
+</ul>
+
+
+<p><%= sejour.Description_Entiere_Sejour %></p>
+
+<img src=<%= sejour.Image_sejour %>></img>
+
+<div>
+    <% avis.Texte_Avis.forEach(function(avis) { %>
+        <% include avisView %>
+    <% }); %>
+</div>
+
+
+
+
+<% if (sessionActive === "0000"){ %>
+    <hr>
+    <h1>Connectez vous où Inscrivez vous</h1>
+<% } else { %>
+    <h1>Deposer mon avis :</h1>
+    <form id="formAvis" method="post" action="/doAvis">
+        Avis : 
+        <input name="avis" type="text">
+        Note : 
+        <input name="note" type="range" min="0" max="10" id="note" step="1" value="10"><span id="outNote"></span>
+        <input name="ID_Sejour" type="hidden" value=<%= sejour.ID_Sejour %> >
+        <button type="submit">C'est parti !</button>
+    </form>
+
+    <script>
+        var note = document.getElementById("note");
+        var outNote = document.getElementById("outNote");
+        
+
+        note.oninput = function() {
+            outNote.innerHTML = this.value;
+        }
+    </script>
+<% } %>
+
+
+
+
+<% include part/footer %>

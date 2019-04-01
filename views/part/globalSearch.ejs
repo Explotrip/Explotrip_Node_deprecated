@@ -1,0 +1,117 @@
+
+<p> <!-- Recherche sur la page de recherche avec valeurs initiales mais modifiable -->
+    
+
+    <h1>Mon Souhait</h1>
+
+    <form id="formResearch" method="get" action="/doResearch">
+        Langue : 
+        <SELECT name="Langue" id="inlineFormCustomSelectLangue">
+            <% for(var i=0; i < allSejours.length; i++) { %>
+                <% if(research[0] == allSejours[i].Langue_Sejour){ %>
+                    <OPTION selected="selected"><%= allSejours[i].Langue_Sejour %>
+                <% }else{ %>
+                    <OPTION><%= allSejours[i].Langue_Sejour %>
+                <% } %>
+            <% } %>
+        </SELECT>
+        Pays :
+        <SELECT name="Pays" id="inlineFormCustomSelectPays">
+            <% for(var i=0; i < allSejours.length; i++) { %>
+                <% if(research[1] == allSejours[i].Pays_Sejour){ %>
+                    <OPTION selected="selected"><%= allSejours[i].Pays_Sejour %>
+                <% }else{ %>
+                    <OPTION> <%= allSejours[i].Pays_Sejour %>
+                <% } %>
+            <% } %>
+        </SELECT>
+        Age : 
+        <SELECT name="Age">
+            <% for(var i=10; i < 30; i++) { %>
+                <% if(research[2] == i){ %>
+                    <OPTION selected="selected"><%= i %>
+                <% }else{ %>
+                    <OPTION> <%= i %>
+                <% } %>
+            <% } %>
+        </SELECT>
+        <button type="submit">Rechercher</button>
+    </form>
+    
+</p>
+
+<script>
+    // Code pour les champs de recherche
+    var sejoursInitiaux = <%-JSON.stringify(allSejours)%>;
+    var inputPays = document.getElementById("inlineFormCustomSelectPays");
+    var inputLangue = document.getElementById("inlineFormCustomSelectLangue");
+    ////////////////////POUR LE PAYS
+    //affichage à l'ouverture
+
+    //champ pays
+    /*for(var i=0; i<sejoursInitiaux.length; i++){
+               var sejour = sejoursInitiaux[i];
+               if(inputPays.innerHTML.includes(sejour.Pays_Sejour) == false){
+                   inputPays.innerHTML += "<option>"+sejour.Pays_Sejour +"</option>";
+               }
+            }
+
+     //champ langue       
+    for(var i=0; i<sejoursInitiaux.length; i++){
+        var sejour = sejoursInitiaux[i];
+        if(inputLangue.innerHTML.includes(sejour.Langue_Sejour) == false){
+            inputLangue.innerHTML += "<option>"+sejour.Langue_Sejour +"</option>";
+        }
+    }*/
+
+    //affichage sur une action
+
+    function updateFieldCountry(nouvelleLangue) {
+        var sejoursInitiaux = <%-JSON.stringify(allSejours)%>;
+            console.log("on update le champs pays pour : " +nouvelleLangue);
+            var selectedValue = inputPays.options[inputPays.selectedIndex].text;
+            console.log("on garde en mémoire : " +selectedValue);
+            inputPays.innerHTML = "";
+            for(var i=0; i<sejoursInitiaux.length; i++){
+                var sejour = sejoursInitiaux[i];
+                console.log(inputPays.innerHTML.includes(sejour.Pays_Sejour));
+                if(inputPays.innerHTML.includes(sejour.Pays_Sejour) == false && nouvelleLangue == sejour.Langue_Sejour){
+                    console.log("on ajoute : " +sejour.Pays_Sejour);
+                    if(sejour.Pays_Sejour == selectedValue){
+                        inputPays.innerHTML += "<option selected='selected'>"+sejour.Pays_Sejour +"</option>";
+                    }else{
+                        inputPays.innerHTML += "<option>"+sejour.Pays_Sejour +"</option>";
+                    }
+                }
+            } 
+        } 
+
+    //affichage sur une action
+    function updateFieldLangue() {
+        var sejoursInitiaux = <%-JSON.stringify(allSejours)%>;
+        console.log("on modifie la langue");
+        var selectedValue = inputLangue.options[inputLangue.selectedIndex].text;
+        console.log("on garde en mémoire : " +selectedValue);
+        inputLangue.innerHTML = "";
+        for(var i=0; i<sejoursInitiaux.length; i++){
+            var sejour = sejoursInitiaux[i];
+            console.log(sejoursInitiaux);
+            if(inputLangue.innerHTML.includes(sejour.Langue_Sejour) == false){
+                if(sejour.Langue_Sejour == selectedValue){
+                    console.log("on ajoute en selectionnant : " +sejour.Langue_Sejour);
+                    inputLangue.innerHTML += "<option selected='selected'>"+sejour.Langue_Sejour +"</option>";
+                }else{
+                    console.log("on ajoute sans selectionner : " +sejour.Langue_Sejour);
+                    inputLangue.innerHTML += "<option>"+sejour.Langue_Sejour +"</option>";
+                }
+            }
+        }  
+        updateFieldCountry(selectedValue);
+    }
+    inputPays.addEventListener("change", updateFieldLangue);
+    inputLangue.addEventListener("change", updateFieldLangue);
+
+    updateFieldLangue();
+
+    
+    </script>

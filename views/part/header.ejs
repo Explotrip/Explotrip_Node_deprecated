@@ -1,0 +1,17 @@
+<header>
+        <a href="/">
+                <img src="img/capture.PNG" height="25%" width="25%"> 
+        </a>
+        <nav>
+                <a href="/sejours">Liste des séjours</a>
+                <% if (sessionActive === "0000"){ %>
+                        <a href="/inscription">S'inscrire</a>
+                        <a href="/connexion">Se connecter</a>
+                <% } else { %>
+                        <a href="/user">Mon compte</a>
+                        <a href="/doDeconnexion">Se déconnecter</a>
+                <% } %>
+        </nav>
+</header>
+
+

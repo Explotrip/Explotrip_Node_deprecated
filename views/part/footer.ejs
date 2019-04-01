@@ -1,0 +1,28 @@
+<!-- views/partials/footer.ejs -->
+<footer>
+
+    <form id="formnewsletter" method="post" action="/doNewsletter">
+    
+        Mail : 
+        <input name="mail" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+        
+        <button type="submit">Inscription</button>
+    </form>
+
+    <a href="/ajoutSejour">ajouter un voyage</a>
+</br>
+</br>
+
+    <a href="/mentionsLegales">MentionsLegales</a>
+    <a href="/cookies">Cookies</a>
+
+    <a href="/accueilExtranet">Accéder à l'Extranet</a>
+
+    <p class="text-center text-muted">© Copyright 2019 Explotrip.com</p>
+
+</footer>
+
+</body>
+
+</html>
+

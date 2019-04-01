@@ -1,0 +1,30 @@
+[
+  {
+    "ID_Client": "0001",
+    "Email_Client": "emailun@gmail.com",
+    "Password_Client": "123456",
+    "Nom_Client": "Jean",
+    "Prénom_Client": "Un"
+  },
+  {
+    "ID_Client": "0002",
+    "Email_Client": "emailDeux@gmail.com",
+    "Password_Client": "nop",
+    "Nom_Client": "Jean",
+    "Prénom_Client": "Deux"
+  },
+  {
+    "ID_Client": "0003",
+    "Email_Client": "julien@gmail.com",
+    "Password_Client": "azertyAZERTY1234",
+    "Nom_Client": "Bardin",
+    "Prénom_Client": "Julien"
+  },
+  {
+    "ID_Client": "0004",
+    "Email_Client": "julien@bardin.com",
+    "Password_Client": "jjjBBB222",
+    "Nom_Client": "Julien",
+    "Prénom_Client": "Bardin"
+  }
+]

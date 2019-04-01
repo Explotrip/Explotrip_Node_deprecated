@@ -1,0 +1,26 @@
+[
+	{
+        "ID_Agence": "A001",
+        "Nom_Agence": "Nacel",
+        "Contact_Tel": "02.52.77.76.15",
+        "Iban": "FR7630001007941234567890185",
+        "Ville":"Aix en Provence",
+        "PrelevementPourcent":16
+	},
+	{
+	"ID_Agence": "A002",
+        "Nom_Agence": "ALOZE",
+        "Contact_Tel": "02.52.77.76.15",
+        "Iban": "FR7630001007941234567890185",
+        "Ville":"Marseille",
+        "PrelevementPourcent":22
+    },
+    {
+	"ID_Agence": "A003",
+        "Nom_Agence": "Calvin Thomas",
+        "Contact_Tel": "02.52.77.76.15",
+        "Iban": "FR7630001007941234567890185",
+        "Ville":"Lille",
+        "PrelevementPourcent":14
+	}
+]

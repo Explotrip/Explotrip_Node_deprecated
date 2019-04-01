@@ -1,0 +1,59 @@
+<% include part/head %>
+
+<% include part/header %>
+
+<h1>Inscription</h1> <!-- Gestion des Inscription avec cases CGU et Newsletter -->
+
+<script type="text/javascript">
+
+    function checkForm(form)
+    {
+      if(form.password.value == form.confirmPassword.value) {
+        return true;
+      }
+  
+        alert("Erreur: Mot de passe différent!");
+        return false;
+    }
+  
+</script>
+
+<form id="formInscription" method="post" action="/doInscription" onsubmit="return checkForm(this);">
+
+    Nom : 
+    <input name="nom" type="text" required pattern="[A-Za-z].{1,}">
+</br>
+    Prénom : 
+    <input name="prenom" type="text" required pattern="[A-Za-z].{1,}">
+</br>
+    Mail : 
+    <input name="mail" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+</br>
+    Mot de passe : 
+    <input name="password" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Doit contenir au moins un chiffre, une majuscule et une minuscule et au moins 8 caractères.">
+</br>
+
+    Confirmation mot de passe : 
+    <input name="confirmPassword" type="password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+    title="Doit contenir au moins un chiffre, une majuscule et une minuscule et au moins 8 caractères.">
+</br>
+    
+    <input type="checkbox" id="cgu" name="cgu" required>
+    <label for="cgu">J'accepte les <a href='/legal/conditionGeneralesUtilisation'>Condition Générales D'Utilisation</a></label>
+</br>
+    
+    <input type="checkbox" id="newsletter" name="newsletter" value=1 checked>
+    <label for="newsletter">J'adorrerai recevoir les offres promotionnelles de Explotrip</label>
+</br>
+
+    <button type="submit">Inscription</button>
+</form>
+
+
+
+  
+  
+  
+
+<% include part/footer %>

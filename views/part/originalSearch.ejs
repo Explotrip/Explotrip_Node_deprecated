@@ -1,0 +1,46 @@
+
+<p> <!-- Recherche sur la page d'accueil sans valeur intitiale -->
+    
+
+    <h1>Mon Souhait</h1>
+
+    <form id="formResearch" method="post" action="/doResearch">
+        Langue : 
+        <SELECT name="Langue" size="1">
+        <% for(var i=0; i < sejours.length; i++) { %>
+            <OPTION><%= sejours[i].Langue_Sejour %>
+        <% } %>
+        </SELECT>
+        Pays : 
+        <SELECT name="Pays" size="1">
+            <% for(var i=0; i < sejours.length; i++) { %>
+                <OPTION><%= sejours[i].Pays_Sejour %>
+            <% } %>
+        </SELECT>
+        Age : 
+        <SELECT name="Age" size="0">
+            <OPTION>10
+            <OPTION>11
+            <OPTION>12
+            <OPTION>13
+            <OPTION>14
+            <OPTION>15
+            <OPTION>16
+            <OPTION>17
+            <OPTION>18
+            <OPTION>19
+            <OPTION>20
+            <OPTION>21
+            <OPTION>22
+            <OPTION>23
+            <OPTION>24
+            <OPTION>25
+            <OPTION>26
+            <OPTION>27
+            <OPTION>28
+            <OPTION>29
+            </SELECT>
+        <button type="submit">Rechercher</button>
+    </form>
+    
+</p>

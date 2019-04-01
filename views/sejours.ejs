@@ -1,0 +1,248 @@
+<% include part/head %>
+
+<% include part/header %>
+
+
+<% include part/globalSearch %>
+
+<hr>
+<% getSejours = JSON.toString(sejours) %>
+<h1>Préciser ma recherche</h1>
+<label for="inpPrixMax">Prix maximum : </label>
+<input type="range" min="1200" max="4000" step="100" id="inpPrixMax" value="4000">
+<span id="outpPrixMax"></span>
+</br>
+<label for="inpPrixMin">Prix minimum : </label>
+<input type="range" min="1200" max="4000" step="100" id="inpPrixMin" value="1200">
+<span id="outpPrixMin"></span>
+</br>
+
+<label for="avecCours">Cours :  .  .   .  Avec </label>
+<input type="range" min="0" max="2" step="1" id="avecCours" value="1"><span>Sans</span>
+</br>
+<label for="inpNoteMin">Note minimum : </label>
+<input type="range" min="0" max="10" step="1" id="inpNoteMin" value="0">
+<span id="outpNoteMin"></span>
+
+<!-- </br>
+<label for="inpVille">Note minimum : </label>
+<SELECT name="Ville" value="0">
+    <% for(var i=0; i < sejours.length; i++) { %>
+        <OPTION><%= sejours[i].Pays_Sejour %>
+    <% } %>
+</SELECT> -->
+
+<!--<button id="btnSearch"> Rechercher </button>-->
+<hr>
+<h1>Résultats</h1>
+
+<div id="sejourViews">
+</div>
+
+<hr>
+<% include part/footer %>
+
+
+<script>
+
+    var sejoursInitiaux = <%-JSON.stringify(sejours)%>;
+    updateUI(sejoursInitiaux)
+
+    // détection d'une modification de valeur
+    var inpPrixMax = document.getElementById("inpPrixMax");
+    var outpPrixMax = document.getElementById("outpPrixMax");
+    
+    inpPrixMax.oninput = function() {
+        outpPrixMax.innerHTML = this.value;
+        applyFilters();
+    }
+
+    var inpPrixMin = document.getElementById("inpPrixMin");
+    var outpPrixMin = document.getElementById("outpPrixMin");
+
+    inpPrixMin.oninput = function() {
+        outpPrixMin.innerHTML = this.value;
+        applyFilters();
+    }
+
+    var avecCours = document.getElementById("avecCours");
+    avecCours.oninput = function() {
+        applyFilters();
+    }
+
+    var inpNoteMin = document.getElementById("inpNoteMin");
+    var outpNoteMin = document.getElementById("outpNoteMin");
+
+    inpNoteMin.oninput = function() {
+        outpNoteMin.innerHTML = this.value;
+        applyFilters();
+    }
+
+
+//////// Fonction Principales
+
+    // Regroupement des tris
+    function applyFilters(){
+        var sejoursFilterFinal = <%-JSON.stringify(sejours)%>;;
+        sejoursFilterFinal = triPrix(sejoursFilterFinal);
+        sejoursFilterFinal = triCours(sejoursFilterFinal);
+        sejoursFilterFinal = triNotes(sejoursFilterFinal);
+        updateUI(sejoursFilterFinal)
+    }
+
+
+
+//////// Fonctions secondaires
+
+    // affichage des séjours
+    function updateUI(sejours){
+        var sejourViews = document.getElementById("sejourViews");
+        if(sejours.length == 0){
+            console.log("Rien");
+            sejourViews.innerHTML = "Aucun séjour trouvé";
+        }else{
+            sejourViews.innerHTML = "";
+        }
+        //pour chaque séjour on va ajouté un article
+        for(var i=0; i<sejours.length; i++){
+            var sejour = sejours[i];
+            //on cré d'abord tous les éléments à afficher
+            var elementArticle = document.createElement("article");
+            var elementTitre = document.createElement("h2");
+            var elementListe = document.createElement("ul");
+            var elementDescription = document.createElement("p");
+            var elementImage = document.createElement("img");
+            var elementForm = document.createElement("form");
+            var elementInputHidden = document.createElement("input");
+            var elementButton = document.createElement("button");
+
+            //On leur donne leurs attributs
+            elementImage.setAttribute("src", sejour.Image_sejour);
+
+            elementForm.setAttribute("method", "get");
+            elementForm.setAttribute("action", "/detail");
+
+            elementInputHidden.setAttribute("name", "ID_Sejour");
+            elementInputHidden.setAttribute("type", "hidden");
+            elementInputHidden.setAttribute("value", sejour.ID_Sejour);
+
+            elementButton.setAttribute("type", "submit");
+            
+            // Ecriture avec ou sans Cours
+            var Cours_text_Sejour;
+            if (sejour.Cours_Sejour == "true"){
+                Cours_text_Sejour = "Avec Cours";
+            } else {
+                Cours_text_Sejour = "Sans Cours";
+            }
+
+            // Quelle note moyenne
+            var NoteMoyenneSejour;
+            if (sejour.NoteMoyenne_Sejour == null){
+                NoteMoyenneSejour = "Note Moyenne : NC";
+            } else {
+                NoteMoyenneSejour = "Note Moyenne : " + sejour.NoteMoyenne_Sejour;
+            }
+
+            //on leur donne ensuite leur texte à afficher
+            elementTitre.innerHTML = sejour.Nom_Sejour;
+            elementListe.innerHTML = "<ul>"
+                 //+"<li>" +sejour.ID_Sejour +"</li>"
+                 +"<li> Pays : " +sejour.Pays_Sejour +"</li>"
+                 +"<li> Ville : " +sejour.Ville_Sejour +"</li>"
+                 +"<li> Prix : " +sejour.Prix_Sejour + "€" +"</li>"
+                 +"<li>" +Cours_text_Sejour +"</li>"
+                 +"<li>" +NoteMoyenneSejour +"/10 </li>"
+                 +"<li> Accessible aux voyageurs de " +sejour.AgeMin_Sejour +" à " +sejour.AgeMax_Sejour  +" ans.</li>"
+                 +"</ul>";
+            elementDescription.innerHTML = sejour.Description_Resume_Sejour;
+            elementButton.innerHTML = "Plus de détails";
+
+            //on ajoute chaque élément à son élément parrent
+            elementArticle.appendChild(elementTitre);
+            elementArticle.appendChild(elementListe);
+            if(sejour.Image_sejour != null){
+                elementArticle.appendChild(elementImage);
+            }
+            elementArticle.appendChild(elementDescription);
+            elementForm.appendChild(elementInputHidden);
+            elementForm.appendChild(elementButton);
+            elementArticle.appendChild(elementForm);
+            sejourViews.appendChild(elementArticle);
+        }  
+    }
+
+    function triPrix(sejoursATrier){
+        var prixMin = document.getElementById("inpPrixMin").value;
+        var prixMax = document.getElementById("inpPrixMax").value;
+        var sejoursFilter = [];
+        //On applique les filtres
+        if(prixMin == "" && prixMax == ""){
+            sejoursFilter = sejoursATrier;
+        }else if (prixMin == ""){
+            for(var i=0; i<sejoursATrier.length; i++){
+                var sejour = sejoursATrier[i];
+                if(sejour.Prix_Sejour < prixMax){
+                    sejoursFilter.push(sejour); 
+                }
+            }
+        }else if (prixMax == ""){
+            for(var i=0; i<sejoursATrier.length; i++){
+                var sejour = sejoursATrier[i];
+                if(sejour.Prix_Sejour > prixMin){
+                    sejoursFilter.push(sejour);
+                }
+            }
+        }else{
+            for(var i=0; i<sejoursATrier.length; i++){
+                var sejour = sejoursATrier[i];
+                if(sejour.Prix_Sejour > prixMin && sejour.Prix_Sejour < prixMax){
+                    sejoursFilter.push(sejour); 
+                }
+            }
+        }
+        return sejoursFilter;
+    }
+
+    function triCours(sejourAtrier){
+        let avecCours = document.getElementById("avecCours").value;
+        let sejoursFilter = [];
+        //On applique les filtres
+        for(var i=0; i<sejourAtrier.length; i++){
+            var sejour = sejourAtrier[i];
+
+            if(avecCours == 1){
+                sejoursFilter.push(sejour);
+            } else if (avecCours == 0) {
+                if (sejour.Cours_Sejour == "true"){
+                    sejoursFilter.push(sejour);
+                }
+            } else if (avecCours == 2){
+                if (sejour.Cours_Sejour == "false"){
+                    sejoursFilter.push(sejour);
+                }
+            }
+        }
+
+        return sejoursFilter;
+    }
+
+    function triNotes(sejourAtrier){
+        let noteMin = document.getElementById("inpNoteMin").value;
+        let sejoursFilter = [];
+        //On applique les filtres
+        for(var i=0; i<sejourAtrier.length; i++){
+            var sejour = sejourAtrier[i];
+            if(noteMin <= sejour.NoteMoyenne_Sejour){
+                sejoursFilter.push(sejour);
+            }
+        }
+
+        return sejoursFilter;
+
+    }
+
+
+
+</script>
+
