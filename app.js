@@ -4,6 +4,9 @@ var fnc = require('./tools')
 var bodyParser = require("body-parser");
 var fs = require("fs");
 require('./tools.js')();
+const PDFDocument = require('pdfkit');
+const nodemailer = require("nodemailer");
+
 
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -96,6 +99,10 @@ app.get('/inscriptionAgence', function(req, res) {
 
 app.get('/accueilExtranet', function(req, res) {
     res.render('extranet/accueilExtranet.ejs',{sessionActive: sessionActive});
+});
+
+app.get('/achatSejourFormulaire', function(req, res) {
+    res.render('achatSejourFormulaire.ejs',{sessionActive: sessionActive});
 });
 
 app.get('/modifyUser', function(req, res) {
@@ -353,15 +360,98 @@ app.post('/doAvis', function(req, res) {
 });
 
 
+// Achat du séjour : retour formulaire
+app.get('/doAchatSejourInscription', function(req, res) {
+
+    const documentClient = new PDFDocument();
+
+    //const pdfname = "PDF/" + sessionActive + ".pdf"; quand ce sera changeable   
+
+    documentClient.pipe(fs.createWriteStream('PDF/output.pdf'));
+
+    // Embed a font, set the font size, and render some text
+    documentClient
+    .fontSize(25)
+    .text('Informations Générales', 100, 100);
+
+   
+
+    // Add another page
+    documentClient.addPage()
+    .fontSize(25)
+    .text('Renseignements Scolaires', 100, 100);
+
+    // Add another page
+    documentClient.addPage()
+    .fontSize(25)
+    .text('Informations Légales', 100, 100);
+
+    // Add another page
+    documentClient.addPage()
+    .fontSize(25)
+    .text('Informations Médicales', 100, 100);
+
+    // Add another page
+    documentClient.addPage()
+    .fontSize(25)
+    .text('Responsables Légaux', 100, 100);
+
+
+    // Add some text with annotations
+    documentClient.addPage()
+    .fillColor("blue")
+    .text('Here is a link!', 100, 100)
+    .underline(100, 100, 160, 27, {color: "#0000FF"})
+    .link(100, 100, 160, 27, 'http://explotrip.com/');
+
+    // Finalize PDF file
+    documentClient.end();
+
+    // telecherger le doc quelquepart
+    // transférer vers la page suivante
+
+    res.render("test.ejs", {sessionActive: sessionActive});
+
+});
+
+
+// Achat du séjour : retour formulaire
+app.get('/doMailTest', function(req, res) {
+
+    async function main(){
+
+        
+
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+        host: "ssl0.ovh.net",
+        port: 465,
+        secure: true, // true for 465, false for other ports
+        auth: {
+        user: "contact@explotrip.com", // generated ethereal user
+        pass: "Jamais2sans3@ovh" // generated ethereal password
+        }
+    });
+
+    // send mail with defined transport object
+    let info = await transporter.sendMail({
+        from: '"Julien" <contact@explotrip.com>', // sender address
+        to: "julien@bardin.me", // list of receivers
+        subject: "Hello ✔", // Subject line
+        text: "Hello world?", // plain text body
+        html: "<b>Hello world?</b>" // html body
+    });
+    }
+
+    main().catch(console.error);
+
+
+    res.render("test.ejs", {sessionActive: sessionActive});
+
+});
 var test = sum(1,2);
 app.listen(1234);
 
 
 
 
-/////////////// Terminal //////////////
-// node app.js
-
-// git add .
-// git commit -m"modifRechercheLive"
-// git push --set-upstream https://github.com/beaupereb/comparateurVL master

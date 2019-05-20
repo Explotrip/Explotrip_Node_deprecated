@@ -1,0 +1,205 @@
+<H1>Renseignement concernant le jeune</H1>
+</br></br>
+
+    <h2> Informations générales</h2>
+</br></br>
+    Nom : 
+    <input name="nom" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder='Mon Nom'>
+</br></br>
+    Prénom : 
+    <input name="prenom" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder='Mon Prénom'>
+</br></br>
+    Date de naissance : 
+    <input type="date" name="naissance">
+</br></br>
+    Femme <INPUT TYPE="RADIO" NAME="sexe" VALUE="FEMME">
+    Homme <INPUT TYPE="RADIO" NAME="sexe" VALUE="HOMME">
+</br></br>
+    Portable : 
+    <input name="portable" type="text" required pattern="[0-9+].{10,12}" placeholder='0600000000'>
+</br></br>
+    Mail : 
+    <input name="mail" type="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder='monmail@mail.com'>
+</br></br>
+    Age le jour du départ :
+    <SELECT name="age" size="0">
+        <option value="" selected disabled hidden>Age</option>
+        <OPTION>10
+        <OPTION>11
+        <OPTION>12
+        <OPTION>13
+        <OPTION>14
+        <OPTION>15
+        <OPTION>16
+        <OPTION>17
+        <OPTION>18
+        <OPTION>19
+        <OPTION>20
+        <OPTION>21
+        <OPTION>22
+        <OPTION>23
+        <OPTION>24
+        <OPTION>25
+        <OPTION>26
+        <OPTION>27
+        <OPTION>28
+        <OPTION>29
+    </SELECT>
+</br></br>
+    Adresse : 
+    <input name="adresse" type="text" autocapitalize="characters" required pattern="[A-Za-z0-9].{1,}" placeholder='Mon Adresse'>
+</br></br>
+    Code Postal : 
+    <input name="codePostal" type="text" autocapitalize="characters" required pattern="[0-9].{5,5}" placeholder='Code Postal'>
+</br></br>
+    Ville : 
+    <input name="ville" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder='Ville'>
+</br></br>
+
+
+
+    <h2>Renseignements Scolaires</h2>
+</br></br>
+    Etablissement Scolaire : 
+    <input name="ecole" type="text" autocapitalize="characters" required pattern="[A-Za-z0-9].{1,}" placeholder='Mon Ecole'>
+</br></br>
+    Adresse : 
+    <input name="adresseEcole" type="text" autocapitalize="characters" required pattern="[A-Za-z0-9].{1,}" placeholder="Adresse de l'Ecole">
+</br></br>
+    Code Postal : 
+    <input name="codePostalEcole" type="text" autocapitalize="characters" required pattern="[0-9].{5,5}" placeholder="Code Postal de l'Ecole">
+</br></br>
+    Ville : 
+    <input name="villeEcole" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder="Ville de l'Ecole">
+</br></br>
+</br></br> 
+    Classe : 
+    <input name="classe" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder='Ma Classe Actuelle'>
+</br></br>
+    <b>Niveau de la langue du pays choisi: </b></br>
+    Debutant (A1)               <INPUT TYPE="RADIO" NAME="niveau" VALUE="A1"></br>
+    Faux-Debutant (A2)          <INPUT TYPE="RADIO" NAME="niveau" VALUE="A2"></br>
+    Pré-Intermédiaire (B1)      <INPUT TYPE="RADIO" NAME="niveau" VALUE="B1"></br>
+    Intermédiaire (B2)          <INPUT TYPE="RADIO" NAME="niveau" VALUE="B2"></br>
+    Itermédiaire Avancé (C11)   <INPUT TYPE="RADIO" NAME="niveau" VALUE="C1"></br>
+    Avancé (C2)                 <INPUT TYPE="RADIO" NAME="niveau" VALUE="C2"></br>
+</br></br>
+    Nombre d'années détude de la langue du pays choisi : 
+    <SELECT name="Age" size="0">
+        <OPTION>1
+        <OPTION>2
+        <OPTION>3
+        <OPTION>4
+        <OPTION>5
+        <OPTION>6
+        <OPTION>7
+        <OPTION>8
+        <OPTION>9
+        <OPTION>10
+        <OPTION>11
+        <OPTION>12
+        <OPTION>13
+        <OPTION>14
+        <OPTION>15
+    </SELECT>
+</br></br>
+    Caractère :
+    Timide              <INPUT TYPE="RADIO" NAME="caractere" VALUE="Timide">
+    Indépendant         <INPUT TYPE="RADIO" NAME="caractere" VALUE="Indépendant">
+    S'adapte Facilement <INPUT TYPE="RADIO" NAME="caractere" VALUE="Sociable">
+</br></br>
+
+
+
+
+
+    <h2>Informations légales</h2>
+</br></br>
+Nationalité :
+<SELECT name="nationalite" size="0">
+    <option value="" selected disabled hidden>Nationalité</option>
+    <OPTION>FRANCAIS
+    <OPTION>ANGLAIS
+    <OPTION>ALLEMAND
+    <OPTION>SUISSE
+    <OPTION>ITALIEN
+    <OPTION>AMERICAIN
+    <OPTION>POLONAIS
+    <OPTION>PORTUGAIS
+    <OPTION>ESPAGNOL
+    <OPTION>AUTRICHIEN
+    <OPTION>ALGERIEN
+    <OPTION>CONGOLAIS
+    <OPTION>MAROCAIN
+    <OPTION>JAPONAIS
+    <OPTION>CHINOIS
+    <OPTION>MEXICAIN
+    <OPTION>TUNISIEN
+    <OPTION>TURQUE
+    <OPTION>BELGE
+    <OPTION>SENEGALAIS
+    <OPTION>MALIEN
+    <OPTION>VIET NAMIEN
+    <OPTION>ROUMAIN
+</SELECT>
+</br></br>
+    Numéro de Passeport ou de la Carte Nationnale d'Identitée :  
+    <input name="CNI" type="text" required pattern="[0-9+].{8,30}">
+</br></br>
+    Date d'Expiration' :  
+    <input type="date" name="expirationCNI">
+</br></br>
+    Personne à contacter en cas d'urgence : 
+    <input name="nameUrgence" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder='Nom Prenom'>
+    <input name="telUrgence" type="text" required pattern="[0-9+].{10}" placeholder='Téléphone'>
+</br></br>
+
+
+
+
+
+    <h2>Informations Médicales </h2>
+</br></br>
+    <b>Allergies :</b></br>
+    Oui        <INPUT TYPE="RADIO" NAME="allergies" VALUE="1"></br>
+    Non        <INPUT TYPE="RADIO" NAME="allergies" VALUE="0"></br>
+    Si oui lesquelles <input name="allergiesOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mes allergies'>
+    <!-- En cas d'allergies alimentaire, veuillez joindre les aliments dangereux et/ou le protocole médical. -->
+</br></br>
+    <b>Handicap Physique :</b></br>
+    Oui        <INPUT TYPE="RADIO" NAME="handicap" VALUE="1"></br>
+    Non        <INPUT TYPE="RADIO" NAME="handicap" VALUE="0"></br>
+    Si oui lequel <input name="handicapOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mon Handicap'>
+</br></br>
+    <b>Traitement médical :</b></br>
+    Oui        <INPUT TYPE="RADIO" NAME="medical" VALUE="1"></br>
+    Non        <INPUT TYPE="RADIO" NAME="medical" VALUE="0"></br>
+    Si oui lequel <input name="medicalOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mon traitement Médical'>
+</br></br>
+    <b>Régime (médical ou religieux) : </b></br>
+    Oui        <INPUT TYPE="RADIO" NAME="regime" VALUE="1"></br>
+    Non        <INPUT TYPE="RADIO" NAME="regime" VALUE="0"></br>
+    Si oui lequel <input name="regimeOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mon régime alimentaire'>
+</br></br>
+    <b>Régime (médical ou religieux) :</b></br>
+    Oui        <INPUT TYPE="RADIO" NAME="regime" VALUE="1"></br>
+    Non        <INPUT TYPE="RADIO" NAME="regime" VALUE="0"></br>
+    Si oui lequel <input name="regimeOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mon régime alimentaire'>
+</br></br>
+    <b>Autre Particularitée: </b></br>
+    Asthme                                      <INPUT TYPE="RADIO" NAME="autreSantee" VALUE="Asthme"></br>
+    Enuresie                                    <INPUT TYPE="RADIO" NAME="autreSantee" VALUE="Enuresie"></br>
+    Maladie Chronique <sup>(1)</sup>            <INPUT TYPE="RADIO" NAME="autreSantee" VALUE="Maladie Chronique"></br>
+    Phobie <sup>(1)</sup>                       <INPUT TYPE="RADIO" NAME="autreSantee" VALUE="Phobie"></br>
+    Problèmes Psychlogiques <sup>(1)</sup>      <INPUT TYPE="RADIO" NAME="autreSantee" VALUE="Problèmes Psychlogiques"></br>
+    Autres <sup>(1)</sup>                       <INPUT TYPE="RADIO" NAME="autreSantee" VALUE="Autres"></br>
+    <sup>(1)</sup> Précisez :<input name="autreSanteeOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mon régime alimentaire'>
+</br></br>
+    <b>Fumeur :</b></br>
+    Oui     <INPUT TYPE="RADIO" NAME="fumeur" VALUE="1"></br>
+    Non     <INPUT TYPE="RADIO" NAME="fumeur" VALUE="0"></br>
+    </br>
+    Attention ! Certains séjours proposé par nos partenaires sont non-fumeurs, le cas échéant le participant s'engage à ne pas fumer. 
+    En cas de non respect de cette consigne les agences ont le droit de sanctionner le participant par son renvoi à se frais.
+</br></br>
+

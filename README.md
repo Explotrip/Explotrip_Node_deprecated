@@ -59,3 +59,12 @@
 Cours .md : 
 - <https://www.youtube.com/watch?v=4UTSEKzsSvM>
 - <https://www.youtube.com/watch?v=pTCROLZLhDM>
+
+---
+
+# Terminal - Lencement
+-  node app.js
+
+-  git add .
+-  git commit -m"modifRechercheLive"
+-  git push --set-upstream https://github.com/beaupereb/comparateurVL master

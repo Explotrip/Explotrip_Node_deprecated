@@ -1,0 +1,43 @@
+<% include part/head %>
+
+<% include part/header %>
+
+<h1>Inscription</h1> <!-- Gestion des Inscription avec cases CGU et Newsletter -->
+
+<script type="text/javascript">
+
+    function checkForm(form)
+    {
+      if(form.password.value == form.confirmPassword.value) {
+        return true;
+      }
+  
+        alert("Erreur: Mot de passe différent!");
+        return false;
+    }
+  
+</script>
+
+<form id="formAchatSejourInscription" method="post" action="/doAchatSejourInscription" onsubmit="return checkForm(this);">
+
+    <% include achatSejourFormulaire/jeune %>
+
+    <% include achatSejourFormulaire/representantsLegaux %>
+
+
+</br></br></br>
+    <button type="submit">Inscription</button>
+    
+
+
+
+
+</form>
+
+</br></br></br></br></br></br>
+
+  <p>Le footer :</p>
+  
+  
+
+<% include part/footer %>
