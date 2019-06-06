@@ -1,4 +1,4 @@
-<H1>Renseignement concernant le jeune</H1>
+<!-- <H1>Renseignement concernant le jeune</H1>
 </br></br>
 
     <h2> Informations générales</h2>
@@ -77,7 +77,7 @@
     <input name="classe" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder='Ma Classe Actuelle'>
 </br></br>
     <b>Niveau de la langue du pays choisi: </b></br>
-    Debutant (A1)               <INPUT TYPE="RADIO" NAME="niveau" VALUE="A1"></br>
+    <INPUT TYPE="RADIO" NAME="niveau" VALUE="A1">Débutant(A1)               </br>
     Faux-Debutant (A2)          <INPUT TYPE="RADIO" NAME="niveau" VALUE="A2"></br>
     Pré-Intermédiaire (B1)      <INPUT TYPE="RADIO" NAME="niveau" VALUE="B1"></br>
     Intermédiaire (B2)          <INPUT TYPE="RADIO" NAME="niveau" VALUE="B2"></br>
@@ -164,7 +164,7 @@ Nationalité :
     Oui        <INPUT TYPE="RADIO" NAME="allergies" VALUE="1"></br>
     Non        <INPUT TYPE="RADIO" NAME="allergies" VALUE="0"></br>
     Si oui lesquelles <input name="allergiesOui" type="text" autocapitalize="characters" pattern="[A-Za-z].{1,}" placeholder='Mes allergies'>
-    <!-- En cas d'allergies alimentaire, veuillez joindre les aliments dangereux et/ou le protocole médical. -->
+   // En cas d'allergies alimentaire, veuillez joindre les aliments dangereux et/ou le protocole médical. 
 </br></br>
     <b>Handicap Physique :</b></br>
     Oui        <INPUT TYPE="RADIO" NAME="handicap" VALUE="1"></br>
@@ -202,4 +202,246 @@ Nationalité :
     Attention ! Certains séjours proposé par nos partenaires sont non-fumeurs, le cas échéant le participant s'engage à ne pas fumer. 
     En cas de non respect de cette consigne les agences ont le droit de sanctionner le participant par son renvoi à se frais.
 </br></br>
+
+ -->
+<span class="contact100-form-title">
+    Renseignement concernant le voyageur
+  </span>
+
+ <div class="wrap-input100 validate-input" data-validate="Name is required">
+    <span class="label-input100">Nom</span>
+    <input class="input100" type="text" name="name" placeholder="Entrez votre nom" autocapitalize="characters" required pattern="[A-Za-z].{1,}">
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate="Name is required">
+    <span class="label-input100">Prenom</span>
+    <input class="input100" type="text" name="name" placeholder="Entrez votre prenom" autocapitalize="characters" required pattern="[A-Za-z].{1,}">
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate="Name is required">
+    <span class="label-input100">Date de naissance : </span>
+    <input type="date" name="naissance">
+    <span class="focus-input100"></span>
+</div>
+
+  <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+    <span class="label-input100">Email</span>
+    <input class="input100" type="text" name="email" placeholder="Enter your email addess" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate="Name is required">
+    <span class="label-input100">Telephone</span>
+    <input class="input100" type="text" name="telephone" placeholder="Entrez votre numéro" required pattern="[0-9+].{10,12}">
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 input100-select">
+    <span class="label-input100">Sexe</span>
+    <div>
+      <select class="selection-2" name="sexe">
+        <option value="" selected disabled hidden>Votre Sexe</option>
+        <option>Homme</option>
+        <option>Femme</option>
+      </select>
+    </div>
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 input100-select">
+    <span class="label-input100">Age le jour du départ</span>
+    <div>
+      <select class="selection-2" name="ageDepart">
+        <option value="" selected disabled hidden>Votre Age</option>
+        <option>10</option><option>11</option><option>12</option><option>13</option>
+        <option>14</option><option>15</option><option>16</option><option>17</option>
+        <option>18</option><option>19</option><option>20</option><option>21</option>
+        <option>22</option><option>23</option><option>24</option><option>25</option>
+      </select>
+    </div>
+    <span class="focus-input100"></span>
+  </div>
+
+  <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <span class="label-input100">Adresse</span>
+        <input class="input100" type="text" name="adresse" placeholder="Entrez votre adresse" required pattern="[A-Za-z].{1,}">
+        <span class="focus-input100"></span>
+      </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <span class="label-input100">Code Postal</span>
+        <input class="input100" type="text" name="codePostal" placeholder="Code Postal" autocapitalize="characters" required pattern="[0-9].{5,5}" >
+        <span class="focus-input100"></span>
+        </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <span class="label-input100">Ville</span>
+            <input class="input100" type="text" name="ville" placeholder="Entrez votre ville" autocapitalize="characters" required pattern="[A-Za-z].{1,}" >
+            <span class="focus-input100"></span>
+    </div>
+    
+
+  <div class="wrap-input100 validate-input" data-validate = "Message is required">
+    <span class="label-input100">Message</span>
+    <textarea class="input100" name="message" placeholder="Your message here..."></textarea>
+    <span class="focus-input100"></span>
+  </div>
+
+</br>
+  <span class="contact100-form-title">
+        Renseignement scolaires
+      </span>
+
+      
+  <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <span class="label-input100">Adresse de l'école</span>
+        <input class="input100" name="adresseEcole" type="text" autocapitalize="characters" required pattern="[A-Za-z0-9].{1,}" placeholder="Adresse de l'Ecole">
+        <span class="focus-input100"></span>
+      </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <span class="label-input100">Code Postal de l'école</span>
+        <input class="input100" name="codePostalEcole" type="text" autocapitalize="characters" required pattern="[0-9].{5,5}" placeholder="Code Postal de l'Ecole">
+        <span class="focus-input100"></span>
+        </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <span class="label-input100">Ville de l'école</span>
+            <input class="input100" name="villeEcole" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder="Ville de l'Ecole">
+            <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 validate-input" data-validate="Name is required">
+            <span class="label-input100">Classe Actuelle</span>
+            <input class="input100" name="classeEcole" type="text" autocapitalize="characters" required pattern="[A-Za-z].{1,}" placeholder="Votre classe">
+            <span class="focus-input100"></span>
+    </div>
+
+    <div class="wrap-input100 input100-select">
+            <span class="label-input100">Niveau de la langue du pays choisi:</span>
+            <div>
+              <select class="selection-2" name="niveauLangue">
+                <option value="" selected disabled hidden>Votre Niveau en </option>
+                <option VALUE="A1">Debutant (A1)</option>
+                <option VALUE="A2">Faux-Debutant (A2)</option>
+                <option VALUE="B1">Pré-Intermédiaire (B1)</option>
+                <option VALUE="B2">Intermédiaire (B2)</option>
+                <option VALUE="C1">Itermédiaire Avancé (C1)</option>
+                <option VALUE="C2">Avancé (C2)</option>
+              </select>
+            </div>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 input100-select">
+                <span class="label-input100">Nombre d'années d'études de la langue du pays choisi : </span>
+                <div>
+                  <select class="selection-2" name="anneeEtudes">
+                    <option value="" selected disabled hidden>Annees</option>
+                    <option>0</option><option>1</option><option>2</option><option>3</option>
+                    <option>4</option><option>5</option><option>6</option><option>7</option>
+                    <option>8</option><option>9</option><option>10</option><option>11</option>
+                    <option>12</option><option>13</option><option>14</option><option>15</option>
+                  </select>
+                </div>
+                <span class="focus-input100"></span>
+              </div>
+
+
+              <div class="wrap-input100 input100-select">
+                    <span class="label-input100">Caractere : </span>
+                    <div>
+                      <select class="selection-2" name="caractere">
+                        <option value="" selected disabled hidden>Votre Caractere</option>
+                        <option>Timide</option>
+                        <option>Indépendant</option>
+                        <option>S'adapte Facilement</option>
+                      </select>
+                    </div>
+                    <span class="focus-input100"></span>
+                  </div>
+
+                </br>
+          <span class="contact100-form-title">
+            Informations Médicales
+          </span>
+    
+          
+          <div class="wrap-input100 input100-select">
+            <span class="label-input100">Allergies </span>
+            <div>
+              <select class="selection-2" name="allergies">
+                <option value="" selected disabled hidden>Selectionner</option>
+                <option>Oui</option><option>Non</option>
+              </select>
+            </div>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 input100-select">
+            <span class="label-input100">Handicap Physique </span>
+            <div>
+              <select class="selection-2" name="handicapPhysique">
+                <option value="" selected disabled hidden>Handicap Physique</option>
+                <option>Oui</option><option>Non</option>
+              </select>
+            </div>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 input100-select">
+            <span class="label-input100">Traitement Medical </span>
+            <div>
+              <select class="selection-2" name="traitementMedical">
+                <option value="" selected disabled hidden>Traitement Medical</option>
+                <option>Oui</option><option>Non</option>
+              </select>
+            </div>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 input100-select">
+            <span class="label-input100">Régime (médical ou religieux) </span>
+            <div>
+              <select class="selection-2" name="traitementMedical">
+                <option value="" selected disabled hidden>Régime (médical ou religieux)</option>
+                <option>Oui</option><option>Non</option>
+              </select>
+            </div>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate = "Message is required">
+            <span class="label-input100">Pour les 4 question précédentes, si oui précisez :</span>
+            <textarea class="input100" name="siOui" placeholder="Your message here..."></textarea>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input" data-validate = "Message is required">
+            <span class="label-input100">Autres particularités</span>
+            <textarea class="input100" name="autresParticularites" placeholder="Your message here..."></textarea>
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 input100-select">
+            <span class="label-input100">Fumeur </span>
+            <div>
+              <select class="selection-2" name="fumeur">
+                <option value="" selected disabled hidden>Vous fumez ?</option>
+                <option>Oui</option><option>Non</option>
+              </select>
+            </div>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input100 input100-select">
+            <div>
+              <span class="label-input100">=> Attention ! Certains séjours proposé par nos partenaires sont non-fumeurs, le cas échéant le participant s'engage à ne pas fumer. 
+              En cas de non respect de cette consigne les agences ont le droit de sanctionner le participant par son renvoi à se frais.
+           </span>
+            </div>
+            
+            <span class="focus-input100"></span>
+          </div>
 

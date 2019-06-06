@@ -1,8 +1,93 @@
-<% include part/head %>
+<% include part/headBegin %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+      <link rel="icon" type="image/png" href="achatSejourForm/images/icons/favicon.ico"/>
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/css/util.css">
+      <link rel="stylesheet" type="text/css" href="achatSejourForm/css/main.css">
+<% include part/headEnd %>
 
 <% include part/header %>
 
-<h1>Inscription</h1> <!-- Gestion des Inscription avec cases CGU et Newsletter -->
+
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <form id="formAchatSejourInscription" method="post" action="/doAchatSejourInscription" onsubmit="return checkForm(this);" class="contact100-form validate-form">
+      
+
+      
+      <% include achatSejourFormulaire/jeune %>
+
+      <% include achatSejourFormulaire/representantsLegaux %>
+
+      <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+          <div class="contact100-form-bgbtn"></div>
+          <button class="contact100-form-btn">
+            <span>
+              Inscription
+              <!-- <button type="submit">Inscription</button>-->
+              <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true" ></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+<script src="achatSejourForm/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="achatSejourForm/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="achatSejourForm/vendor/bootstrap/js/popper.js"></script>
+<script src="achatSejourForm/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="achatSejourForm/vendor/select2/select2.min.js"></script>
+<script>
+  $(".selection-2").select2({
+    minimumResultsForSearch: 20,
+    dropdownParent: $('#dropDownSelect1')
+  });
+</script>
+<!--===============================================================================================-->
+<script src="achatSejourForm/vendor/daterangepicker/moment.min.js"></script>
+<script src="achatSejourForm/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="achatSejourForm/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="achatSejourForm/js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="achatSejourForm/https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-23581568-13');
+</script>
+
+
 
 <script type="text/javascript">
 
@@ -18,21 +103,10 @@
   
 </script>
 
-<form id="formAchatSejourInscription" method="post" action="/doAchatSejourInscription" onsubmit="return checkForm(this);">
 
-    <% include achatSejourFormulaire/jeune %>
-
-    <% include achatSejourFormulaire/representantsLegaux %>
-
-
-</br></br></br>
-    <button type="submit">Inscription</button>
     
 
 
-
-
-</form>
 
 </br></br></br></br></br></br>
 

@@ -74,7 +74,7 @@ app.get('/connexion', function(req, res) {
 });
 
 app.get('/conditionGeneralesUtilisation', function(req, res) {
-    res.render('legal/conditionGeneralesUtilisation.ejs',{sessionActive: sessionActive});
+    res.render('legal/conditionGeneralesUtilisateur.ejs',{sessionActive: sessionActive});
 });
 
 app.get('/mentionsLegales', function(req, res) {
